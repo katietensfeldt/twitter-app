@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     users = User.all
-    render json: users.as_json
+    render json: users
   end
 
   def create
@@ -10,12 +10,12 @@ class UsersController < ApplicationController
       email: params[:email]
     )
     user.save
-    render json: user.as_json
+    render json: user
   end
 
   def show
     user = User.find(params[:id])
-    render json: user.as_json
+    render json: user
   end
 
   def update
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     user.username = params[:username] || user.username
     user.email = params[:email] || user.email
     user.save
-    render json: user.as_json
+    render json: user
   end
 
   def destroy
